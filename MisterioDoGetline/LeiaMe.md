@@ -52,3 +52,4 @@ A resposta esta la embaixo.
 O comando cin deixa rastros no buffer do teclado.
 Quando o camndo getline() é executado, ele encontra o ENTER digitado no buffer pelo usuário.
 O comando getline() se comporta como se o usuário tivesse acabado de apertar o ENTER.
+Para resolver o problema basta utilizar o comando cin.ignore() antes do comando getline()
