@@ -1,0 +1,24 @@
+#include <iostream>
+using namespace std;
+
+struct minhaStruct{
+    int tamanho;
+    int *vetor;//Todo vetor é um ponteiro mas não pode ser declarado assim: int vetor[].
+    //int vetor[] não permite extensão de espaço pois a struct tem tamanho constante
+};
+
+int main(){
+    minhaStruct str1;
+    int t;
+    cout << "digite o tamanho do vetor: ";
+    cin >> t;
+    str1.vetor = new int[t];
+    for(int i = 0; i < t; i++){
+        cout << "digite o valor do elemento: " << i << endl;
+        cin >> str1.vetor[i];
+        cout << endl;
+    }
+    for(int i = 0; i < t; i++){
+        cout << str1.vetor[i] << endl;
+    }
+}
