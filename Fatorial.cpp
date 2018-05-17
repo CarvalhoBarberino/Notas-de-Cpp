@@ -22,5 +22,5 @@ int main()
     cin.ignore(1024, '\n');
     cout << "Press enter to continue...";
     cin.get();
-			 return 0;
+    return 0;
 }
