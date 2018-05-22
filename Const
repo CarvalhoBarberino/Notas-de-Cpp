@@ -1,0 +1,17 @@
+#include <iostream>
+
+using namespace std;
+
+void display(const int x);
+
+int main()
+{
+	int num = 6;
+	display(num);
+}
+
+void display(const int x)
+{
+	//x = 3;//Repare que esta linha causa erro de compilação. A declaração const para a variavel x indica para o complilador não compilar caso haja uma tentativa de alterar o valor da constante. É utilizado para evitar erros de programação. Efetivamente a declaração const só funciona em tempo de compilação.
+	cout << x << endl;
+}
