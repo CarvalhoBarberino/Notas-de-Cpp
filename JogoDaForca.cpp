@@ -2,13 +2,11 @@
 #include <stdlib.h>
 #define CEM 100
 using namespace std;
-
 void limpaTela(int linhas){
 	for(int i = 0; i<linhas; i++){
 		cout << endl;
 	}
 }
-
 void imprimeVecChar(char *vec){
 	int i = 0;
 	while(vec[i] != '\0'){
@@ -16,22 +14,20 @@ void imprimeVecChar(char *vec){
 		i++;
 	}
 }
-
 bool comparaVecChar(int tam, int *acertos, char letra, char *vecSecreto, char *vecPublico){
 	bool retornar = false;
 	for(int i = 0; i < tam; i++){
-	//cout << "i = " << i << " " << vecSecreto[i] << " " << letra<<endl;
+		if(vecPublico[i] == letra){
+			(*acertos)--;
+		}
 		if(vecSecreto[i] == letra){
 			vecPublico[i] = letra;
 			(*acertos)++;
-			//cout << "*acertos " << *acertos << endl;
 			retornar = true;
 		}
 	}
-	//cout << "Voce acertou " << *acertos << " letras ate agora" << endl;
 	return retornar;
 }
-
 int main(){
 	bool vitoria;
 	int tamanhoDaPalavraSecreta = 0, i = 0, chances = 6, acertos = 0;
@@ -51,17 +47,16 @@ int main(){
 		palavraOculta[i] = '-';
 	}
 	imprimeVecChar(palavraOculta);
-	limpaTela(10);
+	limpaTela(7);
 	i = 0;
-	while((chances > 1) && (acertos < tamanhoDaPalavraSecreta)){
+	while((chances >= 1) && (acertos < tamanhoDaPalavraSecreta)){
+		cout << "\n\n\n\nVoce ainda tem " << chances << " chances\n\n\n\n\n";
 		cout << endl << "Digite uma letra: ";
 		cin >> letra;
 		if(comparaVecChar(tamanhoDaPalavraSecreta, &acertos, letra, resposta, palavraOculta)){chances++;}
 		chances--;
 		limpaTela(CEM);
-		//cout << chances << endl << acertos;
 		imprimeVecChar(palavraOculta);
-		cout << "\n\nVoce ainda tem " << chances << " chances";
 	}
 	limpaTela(CEM);
 	if(acertos == tamanhoDaPalavraSecreta){
